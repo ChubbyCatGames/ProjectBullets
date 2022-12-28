@@ -1,0 +1,34 @@
+{
+    "name": "PlayerControl",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "14418b5d-f0ac-406d-a763-c91436baec3a",
+            "actions": [
+                {
+                    "name": "StartLaunch",
+                    "type": "Value",
+                    "id": "6c9c55b2-30e3-4ef9-b4cc-4c6a7289b1fd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "04461feb-fba8-45d4-8ab0-a6bf83c646e8",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StartLaunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
