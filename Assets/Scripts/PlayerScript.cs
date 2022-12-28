@@ -37,7 +37,8 @@ public class PlayerScript : MonoBehaviour
     public void MovePlayer(Vector2 pos)
     {
         Vector2 dif= pos - rb.position;
-        rb.AddForce(dif*100);
+        Debug.DrawLine(rb.position, pos);
+        rb.AddForce(dif.normalized*1000);
     }
 
 
