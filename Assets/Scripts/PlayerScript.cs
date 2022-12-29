@@ -39,5 +39,16 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+    private void Die()
+    {
+        print("Death");
+    }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 10)//If detect enemy collision
+        {
+            Die();
+        }
+    }
 }
