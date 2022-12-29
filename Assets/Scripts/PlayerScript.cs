@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
 
     Vector2 vec = new Vector2();
     Rigidbody2D rb;
-    float jumpSpeed = 500;
+    float jumpSpeed = 1000;
     // Start is called before the first frame update
     void Start()
     {
