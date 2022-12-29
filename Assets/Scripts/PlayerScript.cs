@@ -10,16 +10,11 @@ public class PlayerScript : MonoBehaviour
 
     Vector2 vec = new Vector2();
     Rigidbody2D rb;
+    float jumpSpeed = 500;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OnStartLaunch(InputAction.CallbackContext ctx)
@@ -27,7 +22,6 @@ public class PlayerScript : MonoBehaviour
 
         
             vec = ctx.ReadValue<Vector2>();
-            print(ctx.phase);
             Vector2 world = Camera.main.ScreenToWorldPoint(vec);
             MovePlayer(world);
         
@@ -37,8 +31,8 @@ public class PlayerScript : MonoBehaviour
     public void MovePlayer(Vector2 pos)
     {
         Vector2 dif= pos - rb.position;
-        Debug.DrawLine(rb.position, pos);
-        rb.AddForce(dif.normalized*1000);
+
+        rb.AddForce(dif.normalized*jumpSpeed);
     }
 
 
