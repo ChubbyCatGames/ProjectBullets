@@ -32,6 +32,7 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         Debug.Log("Ta luego");
+        //Aqui en vez de salir iria al menu principal
         Application.Quit();
     }
 }
