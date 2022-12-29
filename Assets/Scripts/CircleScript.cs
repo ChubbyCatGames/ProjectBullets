@@ -20,25 +20,24 @@ public class CircleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!collider.bounds.Contains(player.transform.position))
+        float dist = Vector3.Distance(collider.bounds.center, player.transform.position);
+        if (dist>(collider.radius*parent.localScale.x))
         {
-            Debug.Log("sali");
-            Rigidbody2D rb = player.transform.GetComponent<Rigidbody2D>();
-            rb.velocity= Vector3.zero;
-            rb.gravityScale = 0;
+        player.transform.right = collider.bounds.center - player.transform.position;
             Vector3 line =  player.transform.position - collider.bounds.center;
             
             line = line.normalized;
-            Vector3 pos = collider.bounds.center + (parent.transform.localScale.x * collider.radius * line);
+            Debug.Log(dist);
+            Vector3 pos = collider.bounds.center + (parent.transform.localScale.x * (collider.radius) * line);
 
+            Rigidbody2D rb = player.transform.GetComponent<Rigidbody2D>();
+            rb.velocity= Vector3.zero;
+            rb.gravityScale = 0;
             player.transform.position = pos;
+
+            
+
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //print("ey");
-        //collision.attachedRigidbody.velocity= Vector3.zero;
-        //collision.attachedRigidbody.gravityScale = 0;
-    }
 }
