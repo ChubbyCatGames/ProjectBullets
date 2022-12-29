@@ -7,23 +7,27 @@ using UnityEngine;
 public class CircleScript : MonoBehaviour
 {
     [SerializeField] Transform parent;
-    [SerializeField]GameObject player;
+    [SerializeField] GameObject player;
     CircleCollider2D collider;
 
+    private PlayerScript scriptPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
         collider = GetComponent<CircleCollider2D>(); 
+        scriptPlayer = player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        scriptPlayer.canJump = false;
+
         float dist = Vector3.Distance(collider.bounds.center, player.transform.position);
         if (dist>(collider.radius*parent.localScale.x))
         {
-        player.transform.right = collider.bounds.center - player.transform.position;
+            player.transform.right = collider.bounds.center - player.transform.position;
             Vector3 line =  player.transform.position - collider.bounds.center;
             
             line = line.normalized;
@@ -35,8 +39,7 @@ public class CircleScript : MonoBehaviour
             rb.gravityScale = 0;
             player.transform.position = pos;
 
-            
-
+            scriptPlayer.canJump= true;
         }
     }
 
