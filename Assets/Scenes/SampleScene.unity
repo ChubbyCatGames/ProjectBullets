@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 929188077}
   - component: {fileID: 929188079}
   - component: {fileID: 929188080}
+  - component: {fileID: 929188081}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -894,7 +895,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fe2f965b580651346b9080e5f4587ddb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54a2b920396c7f74a85e71f3e15fdb48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -914,7 +915,7 @@ Transform:
   m_GameObject: {fileID: 929188076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.78, y: 0.78, z: 0.78}
+  m_LocalScale: {x: 0.065, y: 0.065, z: 0.065}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 983303972}
@@ -950,6 +951,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 983303972}
   player: {fileID: 1681634335}
+--- !u!122 &929188081
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929188076}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4289379376
+  m_Size: 0.8
 --- !u!1 &932453532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1657,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.5306646, b: 0.7075472, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1912,7 +1925,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.71991634, a: 1}
+  m_Color: {r: 0.9686275, g: 0.18431373, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
