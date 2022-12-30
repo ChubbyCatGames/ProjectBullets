@@ -37,7 +37,6 @@ public class GameMaster : MonoBehaviour
     public void EndGame()
     {
         Time.timeScale = 0f;
-        endGamePanel.SetActive(false);
         endGamePanel.SetActive(true);
     }
 }
