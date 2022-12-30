@@ -16,6 +16,9 @@ public class BulletScript : MonoBehaviour
     private Rigidbody2D rb;
     private CircleCollider2D col;
 
+    //Particles
+    [SerializeField] private GameObject slowDownParticles;
+
     public float Speed { get => speed; set => speed = value; }
 
     private void Awake() //For testing
@@ -67,6 +70,12 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.layer == 12) //Layer for the speed reduction ring entrance
         {
+            //Particles
+            GameObject particles = GameObject.Instantiate(slowDownParticles);
+            particles.transform.position = gameObject.transform.position;
+            particles.GetComponent<ParticleSystem>().Play();
+
+            //Velocity
             UpdateVelocity(true);
         }
 

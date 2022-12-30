@@ -10,11 +10,16 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] GameMaster gameMaster;
 
+    [SerializeField] private GameObject deathParticlesPrefab;
+
     Vector2 vec = new Vector2();
     Rigidbody2D rb;
     float jumpSpeed = 1000;
 
     public bool canJump;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +48,15 @@ public class PlayerScript : MonoBehaviour
 
     private void Die()
     {
+        //Particles
+        GameObject particles = GameObject.Instantiate(deathParticlesPrefab);
+        particles.transform.position = gameObject.transform.position;
+        particles.GetComponent<ParticleSystem>().Play();
+
         gameMaster.EndGame();
+
+        //Destroy player
+        gameObject.SetActive(false);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -53,4 +66,5 @@ public class PlayerScript : MonoBehaviour
             Die();
         }
     }
+
 }

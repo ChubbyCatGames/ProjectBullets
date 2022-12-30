@@ -45,9 +45,15 @@ public class GameMaster : MonoBehaviour
 
     public void EndGame()
     {
+        StartCoroutine(WaitForDeathAnimationAndEndGame());
+    }
+
+    IEnumerator WaitForDeathAnimationAndEndGame()
+    {
+        yield return new WaitForSeconds(3f);
         Time.timeScale = 0f;
         endGamePanel.SetActive(true);
-        TextMeshProUGUI final=  GameObject.Find("FinalScore").GetComponent<TextMeshProUGUI>();
-        final.text = "Your Score: "+ textPoints.text.ToString();
+        TextMeshProUGUI final = GameObject.Find("FinalScore").GetComponent<TextMeshProUGUI>();
+        final.text = "Your Score: " + textPoints.text.ToString();
     }
 }
