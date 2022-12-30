@@ -1830,6 +1830,7 @@ GameObject:
   - component: {fileID: 1681634341}
   - component: {fileID: 1681634340}
   - component: {fileID: 1681634342}
+  - component: {fileID: 1681634343}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2074,8 +2075,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0.72156864, a: 0.84313726}
-      key1: {r: 0, g: 1, b: 0.72156864, a: 0}
+      key0: {r: 0.6999151, g: 0.27326453, b: 0.7169812, a: 0.84313726}
+      key1: {r: 0.7019608, g: 0.27450982, b: 0.7176471, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2110,3 +2111,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!122 &1681634343
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681634335}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4290979013
+  m_Size: 0.5
