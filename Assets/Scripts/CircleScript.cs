@@ -31,7 +31,6 @@ public class CircleScript : MonoBehaviour
             Vector3 line =  player.transform.position - collider.bounds.center;
             
             line = line.normalized;
-            Debug.Log(dist);
             Vector3 pos = collider.bounds.center + (parent.transform.localScale.x * (collider.radius) * line);
 
             Rigidbody2D rb = player.transform.GetComponent<Rigidbody2D>();

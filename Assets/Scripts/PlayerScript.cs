@@ -8,6 +8,8 @@ using UnityEngine.Tilemaps;
 public class PlayerScript : MonoBehaviour
 {
 
+    [SerializeField] GameMaster gameMaster;
+
     Vector2 vec = new Vector2();
     Rigidbody2D rb;
     float jumpSpeed = 1000;
@@ -41,7 +43,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Die()
     {
-        print("Death");
+        gameMaster.EndGame();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

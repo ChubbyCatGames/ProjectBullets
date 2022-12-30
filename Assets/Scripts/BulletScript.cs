@@ -47,7 +47,7 @@ public class BulletScript : MonoBehaviour
     {
         this.direction = direction;
         this.speed = speed;
-
+        transform.right = direction;
     }
 
     public void UpdateVelocity(bool doesSpeedReductionApply = false) //The adjustment variables are the projections of the speed so it is balanced.

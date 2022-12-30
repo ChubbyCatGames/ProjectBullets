@@ -7,7 +7,7 @@ public class GameMaster : MonoBehaviour
 {
     private float deviceWidth;
     [SerializeField] GameObject circle;
-
+    [SerializeField] GameObject endGamePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class GameMaster : MonoBehaviour
 
         float worldWidth = worldHeight * aspect;
 
-        circle.transform.localScale= new Vector3(worldWidth*0.9f,worldWidth*0.9f,0);
+        circle.transform.localScale= new Vector3(worldWidth*0.8f,worldWidth*0.8f,0);
     }
 
     // Update is called once per frame
@@ -31,6 +31,13 @@ public class GameMaster : MonoBehaviour
 
         float worldWidth = worldHeight * aspect;
 
-        circle.transform.localScale = new Vector3(worldWidth * 0.9f, worldWidth * 0.9f, 0);
+        circle.transform.localScale = new Vector3(worldWidth * 0.8f, worldWidth * 0.8f, 0);
+    }
+
+    public void EndGame()
+    {
+        Time.timeScale = 0f;
+        endGamePanel.SetActive(false);
+        endGamePanel.SetActive(true);
     }
 }
