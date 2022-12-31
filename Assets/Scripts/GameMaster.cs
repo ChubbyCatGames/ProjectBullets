@@ -11,6 +11,8 @@ public class GameMaster : MonoBehaviour
     [SerializeField] GameObject endGamePanel;
     private float points;
     [SerializeField] TextMeshProUGUI textPoints;
+    //referncia leaderBoard
+    public LeaderBoard leaderboard;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +53,10 @@ public class GameMaster : MonoBehaviour
     IEnumerator WaitForDeathAnimationAndEndGame()
     {
         yield return new WaitForSeconds(3f);
+
+        //actualiza leaderboard con la puntuacion
+        yield return leaderboard.SubmitScoreRoutine(Mathf.FloorToInt(points));
+
         Time.timeScale = 0f;
         endGamePanel.SetActive(true);
         TextMeshProUGUI final = GameObject.Find("FinalScore").GetComponent<TextMeshProUGUI>();
