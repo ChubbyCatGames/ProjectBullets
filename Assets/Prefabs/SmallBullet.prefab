@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2420916289142713027}
   - component: {fileID: 2420916289142713026}
   - component: {fileID: 2420916289142713037}
-  - component: {fileID: 3713909237883504341}
   - component: {fileID: 450334854606805896}
+  - component: {fileID: 4690540520687171694}
   m_Layer: 10
   m_Name: SmallBullet
   m_TagString: Untagged
@@ -126,21 +126,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3713909237883504341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2420916289142713038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fef7d9af60254a746a76c7890dd4414e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.35
-  speedReductionMultiplier: 0.2
-  slowDownParticles: {fileID: 8399295873383211458, guid: 6d31f6890e2469049b27d621c03c5f7b, type: 3}
 --- !u!96 &450334854606805896
 TrailRenderer:
   serializedVersion: 2
@@ -249,6 +234,21 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &4690540520687171694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420916289142713038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605e31ecc1e72244cadc0322b382a083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.35
+  speedReductionMultiplier: 0.2
+  slowDownParticles: {fileID: 8399295873383211458, guid: 6d31f6890e2469049b27d621c03c5f7b, type: 3}
 --- !u!1 &7285095892400100667
 GameObject:
   m_ObjectHideFlags: 0

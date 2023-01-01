@@ -287,6 +287,7 @@ MonoBehaviour:
   bulletDivision: {fileID: 2420916289142713038, guid: 5efeb6f12a741fa49bfd0a318683038b, type: 3}
   divisionDirection1: {fileID: 6705798155732601697}
   divisionDirection2: {fileID: 6705798154597024052}
+  particlesDivisionPrefab: {fileID: 8927462353931091049, guid: fc45bd675da6f814099838252caef089, type: 3}
 --- !u!1 &6705798154597024053
 GameObject:
   m_ObjectHideFlags: 0

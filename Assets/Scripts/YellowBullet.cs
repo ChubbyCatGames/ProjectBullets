@@ -7,6 +7,8 @@ public class YellowBullet : BulletScript
     [SerializeField] private GameObject bulletDivision;
     [SerializeField] private Transform divisionDirection1, divisionDirection2;
 
+    [SerializeField] private GameObject particlesDivisionPrefab;
+
     public override void EnterRing()
     {
         base.EnterRing();
@@ -47,16 +49,13 @@ public class YellowBullet : BulletScript
         bullet1.GetComponent<BulletScript>().UpdateVelocity(false);
         bullet2.GetComponent<BulletScript>().UpdateVelocity(false);
 
-        StartCoroutine(UpdateSpeedAfter(bullet1, bullet2));
+        //Particles
+        GameObject particles = GameObject.Instantiate(particlesDivisionPrefab);
+        particles.transform.position = gameObject.transform.position;
+        particles.GetComponent<ParticleSystem>().Play();
 
         //Destroy
         Destroy(gameObject);
     }
 
-    IEnumerator UpdateSpeedAfter(GameObject b1, GameObject b2)
-    {
-        yield return new WaitForSeconds(0.5f);
-        b1.GetComponent<BulletScript>().UpdateVelocity(false);
-        b2.GetComponent<BulletScript>().UpdateVelocity(false);
-    }
 }
