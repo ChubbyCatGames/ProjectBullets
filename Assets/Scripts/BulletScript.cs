@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     private CircleCollider2D col;
 
     //Particles
-    [SerializeField] private GameObject slowDownParticles;
+    [SerializeField] public GameObject slowDownParticles;
 
     public float Speed { get => speed; set => speed = value; }
 
@@ -66,22 +66,20 @@ public class BulletScript : MonoBehaviour
 
     }
 
+    public virtual void EnterRing() { }
+
+    public virtual void ExitRing() { }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 12) //Layer for the speed reduction ring entrance
         {
-            //Particles
-            GameObject particles = GameObject.Instantiate(slowDownParticles);
-            particles.transform.position = gameObject.transform.position;
-            particles.GetComponent<ParticleSystem>().Play();
-
-            //Velocity
-            UpdateVelocity(true);
+            EnterRing();
         }
 
         if (collision.gameObject.layer == 13) //Layer for the speed reduction ring exit
         {
-            UpdateVelocity(false);
+            ExitRing();
         }
     }
 

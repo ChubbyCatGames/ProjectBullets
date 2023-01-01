@@ -8,6 +8,10 @@ public class EnemyGenerator : MonoBehaviour
     private float increaseDifficultyTimer;
 
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject bulletPrefab2;
+
+    bool enemyType2Control = false;
+    bool enemyType3Control = false;
 
     private GameObject player;
 
@@ -23,6 +27,7 @@ public class EnemyGenerator : MonoBehaviour
         StartCoroutine(EnemyGeneratorStart());
         StartCoroutine(TimerIncrease());
         StartCoroutine(TimerAttackPlayer());
+        StartCoroutine(UnlockEnemyType2Timer());
     }
 
 
@@ -65,12 +70,42 @@ public class EnemyGenerator : MonoBehaviour
             destiny = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
             controlCounter++;
 
-            if (controlCounter > 20)
+            if (controlCounter > 50)
             {
                 break;
             }
         }
         return destiny;
+    }
+
+    private GameObject GetRandomEnemy()
+    {
+        if (!enemyType2Control)
+        {
+            //Just 1 enemy
+            return bulletPrefab;
+        }
+        else
+        {
+            if (!enemyType3Control)
+            {
+                //2 enemies
+                int r = Random.Range(0, 100);
+                if (r <= 90)
+                {
+                    return bulletPrefab;
+                }
+                else
+                {
+                    return bulletPrefab2;
+                }
+            }
+            else
+            {
+                //3 enemies
+                return bulletPrefab;
+            }
+        }
     }
 
     private void GenerateEnemies(int amount)
@@ -83,7 +118,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private void GenerateNewEnemy(Vector2 position, Vector2 destination)
     {
-        GameObject generatedBullet = Instantiate(bulletPrefab);
+        GameObject generatedBullet = Instantiate(GetRandomEnemy());
         generatedBullet.transform.parent = GameObject.Find("Game").transform;
 
         generatedBullet.transform.localPosition = position;
@@ -128,5 +163,11 @@ public class EnemyGenerator : MonoBehaviour
             yield return new WaitForSeconds(3f);
             GenerateNewEnemy(GetRandomSpawnPoint(), (Vector2) player.transform.position);
         }
+    }
+
+    IEnumerator UnlockEnemyType2Timer()
+    {
+        yield return new WaitForSeconds(40f);
+        enemyType2Control = true;
     }
 }

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2420916289142713027}
   - component: {fileID: 2420916289142713026}
   - component: {fileID: 2420916289142713037}
-  - component: {fileID: 2420916289142713036}
+  - component: {fileID: 3713909237883504341}
   - component: {fileID: 450334854606805896}
   m_Layer: 10
-  m_Name: Bullet
+  m_Name: SmallBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 0.745283, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.94509804, g: 1, b: 0.03529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,7 +126,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2420916289142713036
+--- !u!114 &3713909237883504341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2420916289142713038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 605e31ecc1e72244cadc0322b382a083, type: 3}
+  m_Script: {fileID: 11500000, guid: fef7d9af60254a746a76c7890dd4414e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.35
@@ -213,7 +213,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8584906, g: 0, b: 0.086328335, a: 0.84313726}
+      key0: {r: 0.85882354, g: 0.8312541, b: 0, a: 0.84313726}
       key1: {r: 0.85882354, g: 0.41180116, b: 0, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -323,7 +323,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 978dde93eb1ce6142addcfa38b234c80, type: 3}
-  m_Color: {r: 0.8584906, g: 0.3514952, b: 0.3514952, a: 1}
+  m_Color: {r: 0.8584906, g: 0.79607844, b: 0.3514952, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
