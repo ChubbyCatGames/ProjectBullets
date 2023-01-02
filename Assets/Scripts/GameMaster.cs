@@ -51,6 +51,11 @@ public class GameMaster : MonoBehaviour
     {
         StartCoroutine(WaitForDeathAnimationAndEndGame());
     }
+    public void CoinCollected()
+    {
+        points += 30f;
+    }
+
 
     IEnumerator WaitForDeathAnimationAndEndGame()
     {

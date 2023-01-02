@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,6 +59,11 @@ public class PlayerScript : MonoBehaviour
         //Destroy player, points and pause button
         gameObject.SetActive(false);
     }
+    private void WinPoints()
+    {
+        Debug.Log("coinCollected");
+        gameMaster.CoinCollected();
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -65,13 +71,24 @@ public class PlayerScript : MonoBehaviour
         {
             Die();
         }
+        if(collision.gameObject.layer == 11)
+        {
+            WinPoints();
+            Destroy(collision.gameObject);
+        }
     }
+
 
     public void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.gameObject.layer == 10)
         {
             Die();
+        }
+        if (collision.gameObject.layer == 11)
+        {
+            WinPoints();
+            Destroy(collision.gameObject);
         }
     }
 
