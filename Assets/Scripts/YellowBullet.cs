@@ -37,13 +37,13 @@ public class YellowBullet : BulletScript
         bullet1.transform.position = transform.position;
         Vector3 destiny = divisionDirection1.position;
         Vector2 directionVector = new Vector2(destiny.x, destiny.y) - new Vector2(bullet1.transform.position.x, bullet1.transform.position.y);
-        bullet1.GetComponent<BulletScript>().SetParameters(directionVector, Speed*50);
+        bullet1.GetComponent<BulletScript>().SetParameters(directionVector, bulletDivision.GetComponent<BulletScript>().Speed);
 
         //bullet2
         bullet2.transform.position = transform.position;
         destiny = divisionDirection2.position;
         directionVector = new Vector2(destiny.x, destiny.y) - new Vector2(bullet2.transform.position.x, bullet2.transform.position.y);
-        bullet2.GetComponent<BulletScript>().SetParameters(directionVector, Speed*50);
+        bullet2.GetComponent<BulletScript>().SetParameters(directionVector, bulletDivision.GetComponent<BulletScript>().Speed);
 
         //Velocities
         bullet1.GetComponent<BulletScript>().UpdateVelocity(false);

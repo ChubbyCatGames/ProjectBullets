@@ -67,4 +67,12 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 10)
+        {
+            Die();
+        }
+    }
+
 }

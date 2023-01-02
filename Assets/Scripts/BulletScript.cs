@@ -21,7 +21,7 @@ public class BulletScript : MonoBehaviour
 
     public float Speed { get => speed; set => speed = value; }
 
-    private void Awake() //For testing
+    public virtual void Awake() //For testing
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
@@ -85,7 +85,7 @@ public class BulletScript : MonoBehaviour
 
     IEnumerator TimerToDestroy()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(10f);
         Destroy(gameObject);
     }
 

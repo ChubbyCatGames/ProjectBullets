@@ -7,8 +7,11 @@ public class EnemyGenerator : MonoBehaviour
     private float waitTimer;
     private float increaseDifficultyTimer;
 
+    private float speedModifier;
+
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject bulletPrefab2;
+    [SerializeField] private GameObject bulletPrefab3;
 
     bool enemyType2Control = false;
     bool enemyType3Control = false;
@@ -19,6 +22,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         waitTimer = 1.5f;
         increaseDifficultyTimer = 2;
+        speedModifier = 0;
 
         Physics2D.IgnoreLayerCollision(10, 10);
 
@@ -28,6 +32,7 @@ public class EnemyGenerator : MonoBehaviour
         StartCoroutine(TimerIncrease());
         StartCoroutine(TimerAttackPlayer());
         StartCoroutine(UnlockEnemyType2Timer());
+        StartCoroutine(UnlockEnemyType3Timer());
     }
 
 
@@ -91,7 +96,7 @@ public class EnemyGenerator : MonoBehaviour
             {
                 //2 enemies
                 int r = Random.Range(0, 100);
-                if (r <= 90)
+                if (r <= 90 - speedModifier)
                 {
                     return bulletPrefab;
                 }
@@ -102,8 +107,23 @@ public class EnemyGenerator : MonoBehaviour
             }
             else
             {
-                //3 enemies
-                return bulletPrefab;
+                int r = Random.Range(0, 100);
+                if (r <= 80 - speedModifier)
+                {
+                    return bulletPrefab;
+                }
+                else
+                {
+                    r = Random.Range(0, 100);
+                    if(r <= 60 - speedModifier)
+                    {
+                        return bulletPrefab2;
+                    }
+                    else
+                    {
+                        return bulletPrefab3;
+                    }
+                }
             }
         }
     }
@@ -118,7 +138,9 @@ public class EnemyGenerator : MonoBehaviour
 
     private void GenerateNewEnemy(Vector2 position, Vector2 destination)
     {
-        GameObject generatedBullet = Instantiate(GetRandomEnemy());
+        GameObject selectedBulletType = GetRandomEnemy();
+        GameObject generatedBullet = Instantiate(selectedBulletType);
+
         generatedBullet.transform.parent = GameObject.Find("Game").transform;
 
         generatedBullet.transform.localPosition = position;
@@ -127,7 +149,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             Vector2 directionVector = destination - new Vector2(generatedBullet.transform.position.x, generatedBullet.transform.position.y);
 
-            bullet.SetParameters(directionVector, bulletPrefab.GetComponent<BulletScript>().Speed);
+            bullet.SetParameters(directionVector.normalized, selectedBulletType.GetComponent<BulletScript>().Speed + speedModifier);
 
             bullet.UpdateVelocity(false); //The projections of the movement
         }
@@ -149,6 +171,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(increaseDifficultyTimer);
             waitTimer -= waitTimer/30;
+            speedModifier += waitTimer / 20;
             if (waitTimer <= 0.3f)
             {
                 waitTimer = 0.3f;
@@ -161,13 +184,19 @@ public class EnemyGenerator : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(3f);
-            GenerateNewEnemy(GetRandomSpawnPoint(), (Vector2) player.transform.position);
+            GenerateNewEnemy(GetRandomSpawnPoint(), player.transform.position);
         }
     }
 
     IEnumerator UnlockEnemyType2Timer()
     {
-        yield return new WaitForSeconds(40f);
+        yield return new WaitForSeconds(30f);
         enemyType2Control = true;
+    }
+
+    IEnumerator UnlockEnemyType3Timer()
+    {
+        yield return new WaitForSeconds(60f);
+        enemyType3Control = true;
     }
 }

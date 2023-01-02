@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e509d2fbb01b6ae4199d9702e1ca4f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.35
+  speed: 3
   speedReductionMultiplier: 0.2
   slowDownParticles: {fileID: 8399295873383211458, guid: 6d31f6890e2469049b27d621c03c5f7b, type: 3}
   bulletDivision: {fileID: 2420916289142713038, guid: 5efeb6f12a741fa49bfd0a318683038b, type: 3}

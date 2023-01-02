@@ -246,8 +246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605e31ecc1e72244cadc0322b382a083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.35
-  speedReductionMultiplier: 0.2
+  speed: 20
+  speedReductionMultiplier: 1
   slowDownParticles: {fileID: 8399295873383211458, guid: 6d31f6890e2469049b27d621c03c5f7b, type: 3}
 --- !u!1 &7285095892400100667
 GameObject:
