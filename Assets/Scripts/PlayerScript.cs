@@ -55,7 +55,7 @@ public class PlayerScript : MonoBehaviour
 
         gameMaster.EndGame();
 
-        //Destroy player
+        //Destroy player, points and pause button
         gameObject.SetActive(false);
     }
 

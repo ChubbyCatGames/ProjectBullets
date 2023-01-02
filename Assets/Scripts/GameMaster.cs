@@ -9,6 +9,8 @@ public class GameMaster : MonoBehaviour
     private float deviceWidth;
     [SerializeField] GameObject circle;
     [SerializeField] GameObject endGamePanel;
+    [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject pointsUI;
     private float points;
     [SerializeField] TextMeshProUGUI textPoints;
     //referncia leaderBoard
@@ -58,6 +60,9 @@ public class GameMaster : MonoBehaviour
         yield return leaderboard.SubmitScoreRoutine(Mathf.FloorToInt(points));
 
         Time.timeScale = 0f;
+        circle.SetActive(false);
+        pointsUI.SetActive(false);
+        pauseButton.SetActive(false);
         endGamePanel.SetActive(true);
         TextMeshProUGUI final = GameObject.Find("FinalScore").GetComponent<TextMeshProUGUI>();
         final.text = "Your Score: " + textPoints.text.ToString();
