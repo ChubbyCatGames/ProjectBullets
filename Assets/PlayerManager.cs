@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     IEnumerator LoginRoutine()
     {
         bool done = false;
+        //inicia sesion del jugador
         LootLockerSDKManager.StartGuestSession((response) =>
         {
             if (response.success)
