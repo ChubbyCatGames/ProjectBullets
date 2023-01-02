@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
 
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject mainMenu;
     public void Pause()
     {
         Time.timeScale = 0f;
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Ta luego");
         //Aqui en vez de salir iria al menu principal
-        Application.Quit();
+        mainMenu.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 }
