@@ -29,6 +29,7 @@ public class GameMaster : MonoBehaviour
         circle.transform.localScale= new Vector3(worldWidth*0.8f,worldWidth*0.8f,0);
 
         points= 0;
+        Time.timeScale = 0f;
     }
 
     // Update is called once per frame

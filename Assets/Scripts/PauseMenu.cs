@@ -26,15 +26,19 @@ public class PauseMenu : MonoBehaviour
 
     public void Replay()
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+        pauseButton.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
+
+
 
     public void ExitGame()
     {
         Debug.Log("Ta luego");
-        //Aqui en vez de salir iria al menu principal
-        mainMenu.SetActive(true);
-        pauseMenu.SetActive(false);
+    
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 }
