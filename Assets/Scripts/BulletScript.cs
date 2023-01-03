@@ -24,7 +24,9 @@ public class BulletScript : MonoBehaviour
     public virtual void Awake() //For testing
     {
         rb = GetComponent<Rigidbody2D>();
+        
         col = GetComponent<CircleCollider2D>();
+
     }
 
     private void Start()
@@ -66,9 +68,13 @@ public class BulletScript : MonoBehaviour
 
     }
 
-    public virtual void EnterRing() { }
+    public virtual void EnterRing() {
+        Physics2D.IgnoreLayerCollision(9, 10, true);
+    }
 
-    public virtual void ExitRing() { }
+    public virtual void ExitRing() {
+        Physics2D.IgnoreLayerCollision(9, 10, false);    
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
