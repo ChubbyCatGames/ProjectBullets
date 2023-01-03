@@ -15,6 +15,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject deathParticlesPrefab;
     [SerializeField] private GameObject collectCoinParticlesPrefab;
 
+    [SerializeField] CircleScript circleRef;
+
     Vector2 vec = new Vector2();
     Rigidbody2D rb;
     float jumpSpeed = 1000;
@@ -82,7 +84,11 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 10)//If detect enemy collision
         {
-            Die();
+            if(Vector3.Distance(collision.gameObject.transform.position, circleRef.collider.bounds.center)< circleRef.radius)
+            {
+
+                Die();
+            }
         }
         if(collision.gameObject.layer == 11)
         {
@@ -96,7 +102,10 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 10)
         {
-            Die();
+            if (Vector3.Distance(collision.gameObject.transform.position, circleRef.collider.bounds.center) < circleRef.radius)
+            {
+                Die();
+            }
         }
         if (collision.gameObject.layer == 11)
         {

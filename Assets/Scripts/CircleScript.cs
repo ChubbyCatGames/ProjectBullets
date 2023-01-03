@@ -8,14 +8,19 @@ public class CircleScript : MonoBehaviour
 {
     [SerializeField] Transform parent;
     [SerializeField] GameObject player;
-    CircleCollider2D collider;
+    public CircleCollider2D collider;
 
     private PlayerScript scriptPlayer;
+
+    public float radius;
 
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<CircleCollider2D>(); 
+        collider = GetComponent<CircleCollider2D>();
+
+        radius = collider.radius * parent.localScale.x;
+
         scriptPlayer = player.GetComponent<PlayerScript>();
     }
 
@@ -25,7 +30,7 @@ public class CircleScript : MonoBehaviour
 
 
         float dist = Vector3.Distance(collider.bounds.center, player.transform.position);
-        if (dist>(collider.radius*parent.localScale.x))
+        if (dist>(radius))
         {
             player.transform.right = collider.bounds.center - player.transform.position;
             Vector3 line =  player.transform.position - collider.bounds.center;
