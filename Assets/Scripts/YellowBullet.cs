@@ -18,7 +18,7 @@ public class YellowBullet : BulletScript
         GameObject particles = GameObject.Instantiate(slowDownParticles);
         particles.transform.position = gameObject.transform.position;
         particles.GetComponent<ParticleSystem>().Play();
-        soundManager.SeleccionAudio(5, 1.0f);
+       
 
         //Velocity
         UpdateVelocity(true);
@@ -34,6 +34,7 @@ public class YellowBullet : BulletScript
         GameObject bullet2 = Instantiate(bulletDivision);
         bullet1.transform.parent = GameObject.Find("Game").transform;
         bullet2.transform.parent = GameObject.Find("Game").transform;
+        soundManager.SeleccionAudio(5, 1.5f);
 
         //bullet1
         bullet1.transform.position = transform.position;

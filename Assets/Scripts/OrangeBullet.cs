@@ -33,7 +33,7 @@ public class OrangeBullet : BulletScript
         GameObject particles = GameObject.Instantiate(particleExplosionPrefab);
         particles.transform.position = gameObject.transform.position;
         particles.GetComponent<ParticleSystem>().Play();
-        soundManager.SeleccionAudio(6, 1.0f);
+        soundManager.SeleccionAudio(6, 1.5f);
 
         StartCoroutine(ExplosionDamage());
     }

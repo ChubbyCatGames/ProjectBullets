@@ -37,7 +37,6 @@ public class LoseScript : MonoBehaviour
     {
         soundManager.SeleccionAudio(0, 1.0f);
         //Time.timeScale = 0f;
-        mainMenu.SetActive(true);
-        rankingMenu.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

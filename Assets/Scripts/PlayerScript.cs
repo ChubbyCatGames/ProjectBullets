@@ -46,7 +46,7 @@ public class PlayerScript : MonoBehaviour
         Vector2 dif = pos - rb.position;
 
         rb.AddForce(dif.normalized * jumpSpeed);
-        soundManager.SeleccionAudio(1, 0.8f);
+        soundManager.SeleccionAudio(1, 1f);
     }
 
     private void Die()
@@ -67,6 +67,7 @@ public class PlayerScript : MonoBehaviour
     {
         Debug.Log("coinCollected");
         gameMaster.CoinCollected();
+        soundManager.SeleccionAudio(7, 2f);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

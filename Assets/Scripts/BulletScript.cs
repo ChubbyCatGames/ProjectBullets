@@ -73,13 +73,13 @@ public class BulletScript : MonoBehaviour
     }
 
     public virtual void EnterRing() {
-        soundManager.SeleccionAudio(3, 1.0f);
+        soundManager.SeleccionAudio(3, 1.5f);
         Physics2D.IgnoreLayerCollision(9, 10, true);
 
     }
 
     public virtual void ExitRing() {
-        soundManager.SeleccionAudio(4, 1.0f);
+        soundManager.SeleccionAudio(4, 1.5f);
         Physics2D.IgnoreLayerCollision(9, 10, false);    
     }
 
