@@ -31,8 +31,13 @@ public class CoinScript : MonoBehaviour
         else
         {
             timer = 0;
-            GameObject coin= Instantiate(coinPrefab);
-            coin.transform.position = Random.insideUnitCircle*worldWidth*0.3f;
+            GenerateCoin();
         }
+    }
+
+    public void GenerateCoin()
+    {
+        GameObject coin = Instantiate(coinPrefab);
+        coin.transform.position = Random.insideUnitCircle * worldWidth * 0.3f;
     }
 }

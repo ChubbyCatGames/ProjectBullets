@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     private SoundManager soundManager;
 
     [SerializeField] GameMaster gameMaster;
+    [SerializeField] CoinScript coinScript;
 
     [SerializeField] private GameObject deathParticlesPrefab;
     [SerializeField] private GameObject collectCoinParticlesPrefab;
@@ -94,6 +95,10 @@ public class PlayerScript : MonoBehaviour
         {
             WinPoints();
             Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.layer == 14)
+        {
+            coinScript.GenerateCoin();
         }
     }
 
