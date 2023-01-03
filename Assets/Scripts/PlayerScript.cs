@@ -8,6 +8,7 @@ using UnityEngine.Tilemaps;
 
 public class PlayerScript : MonoBehaviour
 {
+    private SoundManager soundManager;
 
     [SerializeField] GameMaster gameMaster;
 
@@ -25,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     public void OnStartLaunch(InputAction.CallbackContext ctx)
@@ -44,12 +46,14 @@ public class PlayerScript : MonoBehaviour
         Vector2 dif = pos - rb.position;
 
         rb.AddForce(dif.normalized * jumpSpeed);
-        
+        soundManager.SeleccionAudio(1, 0.8f);
     }
 
     private void Die()
     {
         //Particles
+        soundManager.SeleccionAudio(2, 2f);
+
         GameObject particles = GameObject.Instantiate(deathParticlesPrefab);
         particles.transform.position = gameObject.transform.position;
         particles.GetComponent<ParticleSystem>().Play();

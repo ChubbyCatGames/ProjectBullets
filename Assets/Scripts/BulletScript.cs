@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour
     private Vector2 direction;
     [SerializeField] float speed;
 
+    private SoundManager soundManager;
 
     [Range(0,1)]
     [SerializeField] float speedReductionMultiplier;
@@ -32,6 +33,7 @@ public class BulletScript : MonoBehaviour
     private void Start()
     {
         StartCoroutine(TimerToDestroy());
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     private void Reset()
