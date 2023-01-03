@@ -20,6 +20,7 @@ public class LeaderBoard : MonoBehaviour
     }
 
     // Update is called once per frame
+    
     public IEnumerator SubmitScoreRoutine(int scoreToUpload)
     {
         bool done = false;
@@ -40,6 +41,7 @@ public class LeaderBoard : MonoBehaviour
         });
         yield return new WaitWhile(() => done == false);
     }
+    
 
     public IEnumerator HighScoresRoutine()
     {
