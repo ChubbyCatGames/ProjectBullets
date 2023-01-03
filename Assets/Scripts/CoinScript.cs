@@ -24,7 +24,7 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < 5)
+        if (timer < 3)
         {
             timer += Time.deltaTime;
         }

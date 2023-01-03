@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] GameMaster gameMaster;
 
     [SerializeField] private GameObject deathParticlesPrefab;
+    [SerializeField] private GameObject collectCoinParticlesPrefab;
 
     Vector2 vec = new Vector2();
     Rigidbody2D rb;
@@ -65,9 +66,16 @@ public class PlayerScript : MonoBehaviour
     }
     private void WinPoints()
     {
-        Debug.Log("coinCollected");
+        //Debug.Log("coinCollected");
         gameMaster.CoinCollected();
         soundManager.SeleccionAudio(7, 2f);
+
+        //Particles
+        GameObject particles = GameObject.Instantiate(collectCoinParticlesPrefab);
+        particles.GetComponent<ParticleSystem>().Play();
+        particles.transform.parent = gameObject.transform;
+        particles.transform.localPosition = Vector2.zero;
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

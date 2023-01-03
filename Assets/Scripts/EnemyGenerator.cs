@@ -20,7 +20,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private void Awake()
     {
-        waitTimer = 1.5f;
+        waitTimer = 2f;
         increaseDifficultyTimer = 2;
         speedModifier = 0;
 
