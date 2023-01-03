@@ -7,15 +7,19 @@ public class MainMenu : MonoBehaviour
 {
 
 
-
+    private SoundManager soundManager;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject rankingMenu;
     [SerializeField] private GameObject contactMenu;
 
-
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     public void NewGame()
     {
+        soundManager.SeleccionAudio(0, 1.0f);
         Time.timeScale = 1f;
         mainMenu.SetActive(false);
         pauseButton.SetActive(true);
@@ -23,14 +27,15 @@ public class MainMenu : MonoBehaviour
 
     public void Leaderboard()
     {
-        
-        
+
+        soundManager.SeleccionAudio(0, 1.0f);
         rankingMenu.SetActive(true);
         mainMenu.SetActive(false);
     }
 
     public void Contact()
     {
+        soundManager.SeleccionAudio(0, 1.0f);
         mainMenu.SetActive(false);
         contactMenu.SetActive(true);
         
@@ -40,6 +45,7 @@ public class MainMenu : MonoBehaviour
 
     public void ExitGame()
     {
+        soundManager.SeleccionAudio(0, 1.0f);
         Debug.Log("Ta luego");
 
         Application.Quit();
