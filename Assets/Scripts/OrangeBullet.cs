@@ -7,6 +7,8 @@ public class OrangeBullet : BulletScript
     [SerializeField] private CircleCollider2D damageCircle;
     [SerializeField] private GameObject particleExplosionPrefab;
 
+    
+
     private Collider2D explosionRing;
 
     bool alreadyExplode = false;
@@ -16,9 +18,11 @@ public class OrangeBullet : BulletScript
         base.Awake();
         explosionRing = GameObject.Find("ExplosionRing").GetComponent<Collider2D>();
 
+
         damageCircle.enabled = false;
 
         alreadyExplode = false;
+
     }
 
 
@@ -29,6 +33,7 @@ public class OrangeBullet : BulletScript
         GameObject particles = GameObject.Instantiate(particleExplosionPrefab);
         particles.transform.position = gameObject.transform.position;
         particles.GetComponent<ParticleSystem>().Play();
+        soundManager.SeleccionAudio(6, 1.0f);
 
         StartCoroutine(ExplosionDamage());
     }

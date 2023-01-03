@@ -9,7 +9,7 @@ public class BulletScript : MonoBehaviour
     private Vector2 direction;
     [SerializeField] float speed;
 
-    private SoundManager soundManager;
+    public SoundManager soundManager;
 
     [Range(0,1)]
     [SerializeField] float speedReductionMultiplier;
@@ -28,12 +28,14 @@ public class BulletScript : MonoBehaviour
         
         col = GetComponent<CircleCollider2D>();
 
+        soundManager = FindObjectOfType<SoundManager>();
+
     }
 
     private void Start()
     {
         StartCoroutine(TimerToDestroy());
-        soundManager = FindObjectOfType<SoundManager>();
+        
     }
 
     private void Reset()
@@ -71,10 +73,13 @@ public class BulletScript : MonoBehaviour
     }
 
     public virtual void EnterRing() {
+        soundManager.SeleccionAudio(3, 1.0f);
         Physics2D.IgnoreLayerCollision(9, 10, true);
+
     }
 
     public virtual void ExitRing() {
+        soundManager.SeleccionAudio(4, 1.0f);
         Physics2D.IgnoreLayerCollision(9, 10, false);    
     }
 

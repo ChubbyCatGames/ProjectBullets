@@ -6,9 +6,10 @@ public class YellowBullet : BulletScript
 {
     [SerializeField] private GameObject bulletDivision;
     [SerializeField] private Transform divisionDirection1, divisionDirection2;
-
+    
     [SerializeField] private GameObject particlesDivisionPrefab;
 
+    
     public override void EnterRing()
     {
         base.EnterRing();
@@ -17,6 +18,7 @@ public class YellowBullet : BulletScript
         GameObject particles = GameObject.Instantiate(slowDownParticles);
         particles.transform.position = gameObject.transform.position;
         particles.GetComponent<ParticleSystem>().Play();
+        soundManager.SeleccionAudio(5, 1.0f);
 
         //Velocity
         UpdateVelocity(true);
