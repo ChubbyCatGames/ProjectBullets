@@ -16,14 +16,14 @@ public class ContactMenu : MonoBehaviour
     public void LinkTree()
     {
         soundManager.SeleccionAudio(0, 1.0f);
-        Application.OpenURL("");
+        Application.OpenURL("https://linktr.ee/chubbycatgames");
     }
 
     public void Twitter()
     {
 
         soundManager.SeleccionAudio(0, 1.0f);
-        Application.OpenURL("");
+        Application.OpenURL("https://twitter.com/TeamChubbyCat");
     }
 
 
