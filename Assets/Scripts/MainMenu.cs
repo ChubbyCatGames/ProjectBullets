@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         soundManager = FindObjectOfType<SoundManager>();
+
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayMenuMusic();
     }
     public void NewGame()
     {
@@ -23,6 +25,8 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         mainMenu.SetActive(false);
         pauseButton.SetActive(true);
+
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayGameMusic();
     }
 
     public void Leaderboard()
