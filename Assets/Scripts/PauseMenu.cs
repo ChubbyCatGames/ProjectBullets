@@ -33,9 +33,12 @@ public class PauseMenu : MonoBehaviour
     public void Replay()
     {
         soundManager.SeleccionAudio(0, 1.0f);
-        //Time.timeScale = 1f;
+        
         pauseButton.SetActive(true);
+        Time.timeScale = 1f;
+        mainMenu.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
         
     }
 
