@@ -27,10 +27,10 @@ public class CircleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        radius = collider.radius * parent.localScale.x;
 
         float dist = Vector3.Distance(collider.bounds.center, player.transform.position);
-        if (dist>(radius))
+        if (dist>(collider.radius * parent.localScale.x))
         {
             player.transform.right = collider.bounds.center - player.transform.position;
             Vector3 line =  player.transform.position - collider.bounds.center;

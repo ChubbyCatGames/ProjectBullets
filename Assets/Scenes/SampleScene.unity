@@ -2715,6 +2715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 983303972}
   player: {fileID: 1681634335}
+  collider: {fileID: 0}
+  radius: 0
 --- !u!122 &929188081
 Halo:
   m_ObjectHideFlags: 0
@@ -5443,6 +5445,7 @@ MonoBehaviour:
   coinScript: {fileID: 329931098}
   deathParticlesPrefab: {fileID: 2902104772607338345, guid: a0754394f95e4924c946ba2712e67e5f, type: 3}
   collectCoinParticlesPrefab: {fileID: 4398974636706622316, guid: ca7f3bae035934c4fb4645b467a9b890, type: 3}
+  circleRef: {fileID: 929188080}
   canJump: 0
 --- !u!114 &1681634341
 MonoBehaviour:
