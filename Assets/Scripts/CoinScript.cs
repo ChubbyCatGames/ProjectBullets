@@ -5,6 +5,8 @@ using UnityEngine;
 public class CoinScript : MonoBehaviour
 {
     [SerializeField] GameObject coinPrefab;
+    [SerializeField] private GameObject generateBulletCoinParticlesPrefab;
+
     private float deviceWidth;
     private float timer;
     float worldWidth;
@@ -39,5 +41,23 @@ public class CoinScript : MonoBehaviour
     {
         GameObject coin = Instantiate(coinPrefab);
         coin.transform.position = Random.insideUnitCircle * worldWidth * 0.3f;
+    }
+
+    public void GenerateCoinByBullet()
+    {
+        StartCoroutine(GenerateCoinByBulletCoroutine());
+    }
+
+    IEnumerator GenerateCoinByBulletCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        GameObject coin = Instantiate(coinPrefab);
+        coin.transform.position = Random.insideUnitCircle * worldWidth * 0.3f;
+
+        //Particles
+        GameObject particles = GameObject.Instantiate(generateBulletCoinParticlesPrefab);
+        particles.transform.position = coin.transform.position;
+        particles.GetComponent<ParticleSystem>().Play();
     }
 }

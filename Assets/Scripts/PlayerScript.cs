@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] private GameObject deathParticlesPrefab;
     [SerializeField] private GameObject collectCoinParticlesPrefab;
+    [SerializeField] private GameObject closeToABulletParticlesPrefab;
 
     [SerializeField] CircleScript circleRef;
 
@@ -98,7 +99,12 @@ public class PlayerScript : MonoBehaviour
         }
         if(collision.gameObject.layer == 14)
         {
-            coinScript.GenerateCoin();
+            //Particles
+            GameObject particles = GameObject.Instantiate(closeToABulletParticlesPrefab);
+            particles.transform.position = gameObject.transform.position;
+            particles.GetComponent<ParticleSystem>().Play();
+
+            coinScript.GenerateCoinByBullet();
         }
     }
 
