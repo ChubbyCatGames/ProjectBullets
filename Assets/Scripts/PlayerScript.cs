@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,13 +53,14 @@ public class PlayerScript : MonoBehaviour
 
         rb.AddForce(dif.normalized * jumpSpeed);
         soundManager.SeleccionAudio(1, 1f);
+        canJump = false;
     }
 
     private void Die()
     {
-        //Particles
         soundManager.SeleccionAudio(2, 2f);
 
+        //Particles
         GameObject particles = GameObject.Instantiate(deathParticlesPrefab);
         particles.transform.position = gameObject.transform.position;
         particles.GetComponent<ParticleSystem>().Play();

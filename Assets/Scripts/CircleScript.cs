@@ -30,21 +30,27 @@ public class CircleScript : MonoBehaviour
         radius = collider.radius * parent.localScale.x;
 
         float dist = Vector3.Distance(collider.bounds.center, player.transform.position);
-        if (dist>(collider.radius * parent.localScale.x))
+        if (dist>=(collider.radius * parent.localScale.x))
         {
             player.transform.right = collider.bounds.center - player.transform.position;
             Vector3 line =  player.transform.position - collider.bounds.center;
             
             line = line.normalized;
-            Vector3 pos = collider.bounds.center + (parent.transform.localScale.x * (collider.radius) * line);
+            Vector3 pos = collider.bounds.center + (parent.transform.localScale.x * collider.radius * line);
 
             Rigidbody2D rb = player.transform.GetComponent<Rigidbody2D>();
             rb.velocity= Vector3.zero;
             rb.gravityScale = 0;
             player.transform.position = pos;
 
-            scriptPlayer.canJump= true;
+            scriptPlayer.canJump = true;
+
+        }else if(dist< (collider.radius * parent.localScale.x - 0.02f))
+        {
+            scriptPlayer.canJump= false;
         }
+        Debug.Log(scriptPlayer.canJump);
+
     }
 
 }
