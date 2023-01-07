@@ -7,7 +7,7 @@ using UnityEngine;
 public class LeaderBoard : MonoBehaviour
 {
     //id leaderboard de lootloker
-    string leaderboardID = "10162";
+    string leaderboardID = "10361";
 
     //textos para ui ranking
     public TextMeshProUGUI playerNames;
