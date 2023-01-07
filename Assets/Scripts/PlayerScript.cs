@@ -103,9 +103,12 @@ public class PlayerScript : MonoBehaviour
         {
             //Particles
             GameObject particles = GameObject.Instantiate(closeToABulletParticlesPrefab);
-            particles.transform.position = gameObject.transform.position;
             particles.GetComponent<ParticleSystem>().Play();
+            particles.transform.parent = gameObject.transform;
+            particles.transform.localPosition = Vector2.zero;
+
             soundManager.SeleccionAudio(8, 2.0f);
+
             coinScript.GenerateCoinByBullet();
         }
     }
