@@ -20,7 +20,7 @@ MonoBehaviour:
   game_version: 1.0.0.0
   deviceID: 19a61f9e-ce68-4268-96c4-42f2b543bb61
   platform: 0
-  developmentMode: 1
+  developmentMode: 0
   url: https://api.lootlocker.io/game/v1
   adminUrl: https://api.lootlocker.io/admin
   playerUrl: https://api.lootlocker.io/player
